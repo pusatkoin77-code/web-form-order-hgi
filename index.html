@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Chip</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color: #25D366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .form-container {
+            padding: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: #25D366;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+        }
+        
+        .btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .btn:hover {
+            background-color: #128C7E;
+        }
+        
+        .btn img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .info {
+            background-color: #f0f7ff;
+            border-left: 4px solid #25D366;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .info h3 {
+            margin-bottom: 8px;
+            color: #128C7E;
+        }
+        
+        .info ul {
+            padding-left: 20px;
+        }
+        
+        .info li {
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+            
+            .form-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Form Pemesanan Chip</h1>
+            <p>Isi formulir berikut untuk melakukan pemesanan</p>
+        </div>
+        
+        <div class="form-container">
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="nama">NAMA AKUN</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama akun Anda" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="id">ID AKUN</label>
+                    <input type="text" id="id" placeholder="Masukkan ID akun Anda" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paket">PILIH PAKET CHIP</label>
+                    <select id="paket" required>
+                        <option value="">-- Pilih Paket --</option>
+                        <option value="1B (60rb)">1B - Rp 60.000</option>
+                        <option value="500m (35rb)">500m - Rp 35.000</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDEzLjk5IDk3LjA0Yy0yOC42Ny0yOC42LTYyLjE2LS4xMi03OC41MiAxNi4yNmwtMjQuODIgMjQuODJjLTYuMjIgNi4yMi02LjIyIDE2LjMgMCAyMi41MmwzLjUyIDMuNTJjNi4yMiA2LjIyIDE2LjMgNi4yMiAyMi41MiAwbDI0LjgyLTI0LjgyYzEwLjEtMTAuMSAyNi4zNy05Ljg2IDM2LjMuNTZsMjAuMTIgMjAuMTJjOS45NCA5Ljk0IDEwLjE4IDI2LjE5LjU2IDM2LjNsLTI0LjgyIDI0LjgyYy02LjIyIDYuMjItNi4yMiAxNi4zIDAgMjIuNTJsMy41MiAzLjUyYzYuMjIgNi4yMiAxNi4zIDYuMjIgMjIuNTIgMGwyNC44Mi0yNC44MmMxNi4zOC0xNi4zOCA0NC44Ni00OS44NiAxNi4yNi03OC41MmwtNDQuODYtNDQuODZ6Ii8+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTI1Ni4wMSA1MTJjLTE0LjA3IDAtMjguMTQtMi42Ny00MS42NC04LjAyTDEyMi44IDQ3MS4yYy0xMC4zMi0zLjg0LTE5LjEtOS45Ni0yNi4xNC0xNy4zOCExMjQuMjQtMTI0LjI0IDEyNC4yNC0zMjYuNCAwLTQ1MC42NCAxMjQuMjQtMTI0LjI0IDMyNi40LTEyNC4yNCA0NTAuNjQgMCAxMjQuMjQgMTI0LjI0IDEyNC4yNCAzMjYuNCAwIDQ1MC42NC03LjA0IDcuMDQtMTUuODIgMTMuNTQtMjYuMTQgMTcuMzhsLTkxLjU3IDMyLjY2Yy0xMy41IDUuMzUtMjcuNTcgOC4wMi00MS42NCA4LjAyeiBNMTYwLjQ0IDQzMi4xNmwxOC41MiA2Ljk0IDY0Ljg0LTI0LjgyYzMuODQtMS4yOCA3LjY4LTIuNTYgMTEuNTItMy44NCAxMi44Mi00LjQ5IDI2LjQtNC40OSAzOS4yMiAwIDMuODQgMS4yOCA3LjY4IDIuNTYgMTEuNTIgMy44NGw2NC44NCAyNC44MiAxOC41Mi02Ljk0YzIuNTYtMS4yOCA1LjEyLTIuNTYgNy42OC00LjQ5IDEzLjUtOS42IDIxLjg2LTI0LjgyIDIxLjg2LTQxLjY0VjEyNi40OGMwLTE3LjM4LTE0LjA3LTMxLjQ1LTMxLjQ1LTMxLjQ1SDExMC4wNmMtMTcuMzggMC0zMS40NSAxNC4wNy0zMS40NSAzMS40NXYyNTkuMzdjMCAxNi44MiA4LjM0IDMyLjA0IDIxLjg2IDQxLjY0IDIuNTYgMS45MyA1LjEyIDMuMjEgNy42OCA0LjQ5eiIvPjwvc3ZnPg==" alt="WhatsApp Icon">
+                    Kirim via WhatsApp
+                </button>
+            </form>
+            
+            <div class="info">
+                <h3>Informasi Penting:</h3>
+                <ul>
+                    <li>Pastikan data yang diisi sudah benar</li>
+                    <li>Pesanan akan diproses setelah pembayaran dikonfirmasi</li>
+                    <li>Nomor WhatsApp tujuan: 08811811033</li>
+                    <li>Anda akan diarahkan ke WhatsApp untuk mengonfirmasi pengiriman pesan</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mengambil nilai dari form
+            const nama = document.getElementById('nama').value;
+            const id = document.getElementById('id').value;
+            const paket = document.getElementById('paket').value;
+            
+            // Format pesan
+            const message = `Halo, saya ingin memesan chip dengan detail berikut:%0A%0ANAMA AKUN: ${nama}%0AID AKUN: ${id}%0APAKET: ${paket}%0A%0ASaya telah mengisi formulir dan ingin melakukan pemesanan.`;
+            
+            // Nomor WhatsApp tujuan
+            const phone = '08811811033';
+            
+            // Membuat URL WhatsApp
+            const whatsappURL = `https://wa.me/${phone}?text=${message}`;
+            
+            // Membuka jendela baru untuk WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
